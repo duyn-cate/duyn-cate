@@ -1,3 +1,4 @@
+// kiem tra day co phai la cay pefect khong
 #include <bits/stdc++.h>
 
 using namespace std;
