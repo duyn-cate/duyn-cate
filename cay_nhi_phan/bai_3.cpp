@@ -1,3 +1,4 @@
+//duyet tu right ->left
 #include <bits/stdc++.h>
 
 using namespace std;
