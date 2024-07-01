@@ -1,3 +1,4 @@
+// kiem tra voi moi nut cha deu co hai nut la.
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
