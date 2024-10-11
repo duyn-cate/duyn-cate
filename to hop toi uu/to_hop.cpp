@@ -48,7 +48,7 @@ for(int i =1 ; i < maxn ; i++)
     F[i] = (F[i - 1] * i) % mod;
 }
 g[maxn - 1] = binpow(F[maxn - 1] , mod - 2);
-for(int i = maxn - 2 ;  i >= 0 ; i++)
+for(int i = maxn - 2 ;  i >= 0 ; i--)
 {
     g[i] = (g[i + 1] * (i + 1)) % mod;
 }
