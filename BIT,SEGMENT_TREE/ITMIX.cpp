@@ -1,3 +1,5 @@
+/// code : Truong_Nguyen_Duy 
+/// code and solution
 #include <bits/stdc++.h>
 #define int long long
 using namespace std;
@@ -27,6 +29,7 @@ namespace SegmentTree
     }
     void down(int id, int l, int r)
     {
+        // lazy cho truy van 3
         if(t[id].check_lazy)
         {
             t[id].sum = (1LL * t[id].lazyC * (r - l + 1)) % mod;
@@ -41,8 +44,16 @@ namespace SegmentTree
             t[id].check_lazy = false;
             t[id].lazyC = 0;
         }
+        // lazy cho truy van 1 va 2
         if(t[id].lazyA != 0 || t[id].lazyB != 1)
         {
+            /*
+            cap nhat lazy cho ca ba truy van nhu sau : 
+            Neu A != 0 && B == 1:
+                sum = sum + x (voi x = (r - l + 1));
+            Neu A == 0 && B != 1
+                sum = sum * x (voi x = x * i (i : l->r));
+            */
             t[id].sum = (t[id].sum * t[id].lazyB % mod + t[id].lazyA * (r - l + 1) % mod) % mod;
             if(l != r)
             {
@@ -90,6 +101,7 @@ namespace SegmentTree
         up1(id << 1 | 1, m + 1, r, u, v, val);
         t[id].sum = (t[id << 1].sum + t[id << 1 | 1].sum) % mod;
     }
+    // tinh ham tong
     int get(int id, int l, int r, int u, int v)
     {
         down(id, l, r);
@@ -108,13 +120,16 @@ using namespace SegmentTree;
 
 signed main()
 {
+    cin.tie(0)->sync_with_stdio(0);
     int n, m;
     cin >> n >> m;
     for (int i = 1; i <= n; i++) cin >> a[i];
+    // gia tri ban dau deu la tong cac a[i] lan
     for(int i = 1 ; i <= n ; i++)
     {
         up(1,1,n,i,i,a[i],1);
     }
+    //  tra loi truy van
     while (m--)
     {
         int type, l, r;
