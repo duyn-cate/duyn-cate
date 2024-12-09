@@ -1,4 +1,4 @@
-/// code : Truong_Nguyen_Duy 
+/// code : Truong_Nguyen_Duy
 /// code and solution
 #include <bits/stdc++.h>
 #define int long long
@@ -48,7 +48,7 @@ namespace SegmentTree
         if(t[id].lazyA != 0 || t[id].lazyB != 1)
         {
             /*
-            cap nhat lazy cho ca ba truy van nhu sau : 
+            cap nhat lazy cho ca ba truy van nhu sau :
             Neu A != 0 && B == 1:
                 sum = sum + x (voi x = (r - l + 1));
             Neu A == 0 && B != 1
